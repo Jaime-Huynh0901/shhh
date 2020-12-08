@@ -17,7 +17,6 @@ import { createUser } from "./src/graphql/mutations";
 const randomImages = [
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-2.jpg",
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-3.jpg",
-  "https://hieumobile.com/wp-content/uploads/avatar-among-us-4.jpg",
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-6.jpg",
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-9.jpg",
 ];
@@ -33,7 +32,7 @@ const App = () => {
   const fetchUesr = async () => {
     // get Authenticated user (ID) from Auth
     const userInfo = await Auth.currentAuthenticatedUser({ bypassCache: true });
-    console.log(userInfo);
+    // console.log(userInfo);
 
     // get the user from Backend with the user sub from Auth
     if (userInfo) {
@@ -56,7 +55,7 @@ const App = () => {
 
       await API.graphql(graphqlOperation(createUser, { input: newUser }));
 
-      console.log(userData);
+      // console.log(userData);
     }
   };
 

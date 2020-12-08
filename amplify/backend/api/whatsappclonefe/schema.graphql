@@ -3,4 +3,31 @@ type User @model {
   name: String!
   imageUri: String
   status: String
+  chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
+}
+
+# secondary key: primary key is the userID and the sort key is chatRoomID
+type ChatRoomUser
+  @model
+  @key(name: "byUser", fields: ["userID", "chatRoomID"])
+  @key(name: "byChatRoom", fields: ["chatRoomID", "userID"]) {
+  id: ID!
+  userID: ID!
+  chatRoomID: ID!
+
+  # make connection between chatRoomUser and actual user
+  user: User @connection(fields: ["userID"])
+
+  # make connection between chatRoomUser and the chatRoom
+  chatRoom: ChatRoom @connection(fields: ["chatRoomID"])
+}
+
+type ChatRoom @model {
+  id: ID!
+
+  # list of users
+  chatRoomUser: [ChatRoomUser]
+    @connection(keyName: "byChatRoom", fields: ["id"])
+
+  # list of messages
 }
