@@ -98,7 +98,7 @@ export const createChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -131,7 +131,7 @@ export const updateChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -164,7 +164,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -182,7 +182,7 @@ export const createChatRoom = /* GraphQL */ `
   ) {
     createChatRoom(input: $input, condition: $condition) {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID
@@ -204,7 +204,7 @@ export const updateChatRoom = /* GraphQL */ `
   ) {
     updateChatRoom(input: $input, condition: $condition) {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID
@@ -226,7 +226,7 @@ export const deleteChatRoom = /* GraphQL */ `
   ) {
     deleteChatRoom(input: $input, condition: $condition) {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID

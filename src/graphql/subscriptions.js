@@ -86,7 +86,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -116,7 +116,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -146,7 +146,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -161,7 +161,7 @@ export const onCreateChatRoom = /* GraphQL */ `
   subscription OnCreateChatRoom {
     onCreateChatRoom {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID
@@ -180,7 +180,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
   subscription OnUpdateChatRoom {
     onUpdateChatRoom {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID
@@ -199,7 +199,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
   subscription OnDeleteChatRoom {
     onDeleteChatRoom {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID

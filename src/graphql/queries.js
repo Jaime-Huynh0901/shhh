@@ -64,7 +64,7 @@ export const getChatRoomUser = /* GraphQL */ `
       }
       chatRoom {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
@@ -110,7 +110,7 @@ export const getChatRoom = /* GraphQL */ `
   query GetChatRoom($id: ID!) {
     getChatRoom(id: $id) {
       id
-      chatRoomUser {
+      chatRoomUsers {
         items {
           id
           userID
@@ -134,7 +134,7 @@ export const listChatRooms = /* GraphQL */ `
     listChatRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        chatRoomUser {
+        chatRoomUsers {
           nextToken
         }
         createdAt
