@@ -16,15 +16,22 @@ const ChatListItem = (props: ChatListItemProps) => {
 
   const navigation = useNavigation();
 
+  const getOtherUser = async () => {
+    const userInfo = await Auth.currentAuthenticatedUser();
+
+    let newArray = chatRoom.chatRoomUsers.items.filter((myUser) => {
+      return myUser.user.id !== userInfo.attributes.sub;
+    });
+    // console.log(newArray[0].user);
+    if (newArray.length) {
+      setOtherUser(newArray[0].user);
+      // console.log(otherUser);
+    } else {
+      return;
+    }
+  };
+
   useEffect(() => {
-    const getOtherUser = async () => {
-      const userInfo = await Auth.currentAuthenticatedUser();
-      if (chatRoom.chatRoomUsers.items[0].user.id === userInfo.attributes.sub) {
-        setOtherUser(chatRoom.chatRoomUsers.items[1].user);
-      } else {
-        setOtherUser(chatRoom.chatRoomUsers.items[0].user);
-      }
-    };
     getOtherUser();
   }, []);
 
